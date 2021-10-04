@@ -1,6 +1,6 @@
 /* appearance */
-static const int sloppyfocus        = 1;  /* focus follows mouse */
-static const unsigned int borderpx  = 1;  /* border pixel of windows */
+static const int sloppyfocus        = 0;  /* focus follows mouse */
+static const unsigned int borderpx  = 2;  /* border pixel of windows */
 static const unsigned int gappih    = 4;  /* horiz inner gap between windows */
 static const unsigned int gappiv    = 4;  /* vert inner gap between windows */
 static const unsigned int gappoh    = 4;  /* horiz outer gap between windows and screen edge */
@@ -37,7 +37,7 @@ static const MonitorRule monrules[] = {
 	{ "eDP-1",    0.5,  1,      2,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL, 0, 0 },
 	*/
 	/* defaults */
-	{ NULL,       0.55, 1,      1,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL, 0, 0 },
+	{ NULL,       0.5,  1,      1,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL, 0, 0 },
 };
 
 /* keyboard */
