@@ -1,6 +1,10 @@
 /* appearance */
 static const int sloppyfocus        = 1;  /* focus follows mouse */
 static const unsigned int borderpx  = 1;  /* border pixel of windows */
+static const unsigned int gappih    = 4;  /* horiz inner gap between windows */
+static const unsigned int gappiv    = 4;  /* vert inner gap between windows */
+static const unsigned int gappoh    = 4;  /* horiz outer gap between windows and screen edge */
+static const unsigned int gappov    = 4;  /* vert outer gap between windows and screen edge */
 static const float rootcolor[]      = {0.3, 0.3, 0.3, 1.0};
 static const float bordercolor[]    = {0.5, 0.5, 0.5, 1.0};
 static const float focuscolor[]     = {1.0, 0.0, 0.0, 1.0};
