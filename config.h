@@ -75,6 +75,20 @@ static const char *termcmd[] = { "alacritty", NULL };
 static const char *menucmd[] = { "bemenu-run", NULL };
 static const char *roficmd[]  = { "rofi", "-show", "drun", "-config", XDG_CONFIG_PATH("rofi/starter.rasi"), NULL };
 
+// Volume control
+static const char *volupcmd[]         = { "pamixer", "--increase","5", NULL };
+static const char *voldowncmd[]       = { "pamixer", "--decrease","5", NULL };
+static const char *voltogglemutecmd[] = { "pamixer", "--toggle-mute", NULL };
+
+// Player control
+static const char *playpausecmd[] = { "playerctl", "play-pause", NULL };
+static const char *playnextcmd[]  = { "playerctl", "next", NULL };
+static const char *playprevcmd[]  = { "playerctl", "previous", NULL };
+
+// Backlight control
+static const char *backlightupcmd[]   = { "brightnessctl", "set", "10%+", NULL };
+static const char *backlightdowncmd[] = { "brightnessctl", "set", "10%-", NULL };
+
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: c -> C, 2 -> at, etc. */
 	/* modifier                  key                 function        argument */
@@ -108,6 +122,18 @@ static const Key keys[] = {
 	TAGKEYS(          XKB_KEY_9, XKB_KEY_parenright,                 8),
 	TAGKEYS(          XKB_KEY_0, XKB_KEY_equal,                      9),
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_E,          quit,           {0} },
+
+	/* Multimedia Control Keys */
+	{ 0,                       XKB_KEY_XF86AudioRaiseVolume,  spawn,  {.v = volupcmd } },
+	{ 0,                       XKB_KEY_XF86AudioLowerVolume,  spawn,  {.v = voldowncmd } },
+	{ 0,                       XKB_KEY_XF86AudioMute,         spawn,  {.v = voltogglemutecmd } },
+
+	{ 0,                       XKB_KEY_XF86AudioPlay,         spawn, {.v = playpausecmd } },
+	{ 0,                       XKB_KEY_XF86AudioNext,         spawn, {.v = playnextcmd } },
+	{ 0,                       XKB_KEY_XF86AudioPrev,         spawn, {.v = playprevcmd } },
+
+	{ 0,                       XKB_KEY_XF86MonBrightnessUp,   spawn,  {.v = backlightupcmd } },
+	{ 0,                       XKB_KEY_XF86MonBrightnessDown, spawn,  {.v = backlightdowncmd } },
 
 	/* Ctrl-Alt-Backspace and Ctrl-Alt-Fx used to be handled by X server */
 	{ WLR_MODIFIER_CTRL|WLR_MODIFIER_ALT,XKB_KEY_Terminate_Server, quit, {0} },
