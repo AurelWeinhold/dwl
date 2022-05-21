@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=dwl
+Comment=Starts Dynamic Window Manager for Wayland (dwl)
+Exec=/usr/local/bin/dwl_start
+TryExec=dwl
+Type=Application
