@@ -26,9 +26,13 @@ dist: clean
 install: dwl
 	install -Dm755 dwl $(DESTDIR)$(PREFIX)/bin/dwl
 	install -Dm644 dwl.1 $(DESTDIR)$(MANDIR)/man1/dwl.1
+	install -Dm755 dwl_start $(DESTDIR)${PREFIX}/bin/dwl_start
+	install -D dwl.desktop /usr/share/wayland-sessions/dwl.desktop
 
 uninstall:
-	rm -f $(DESTDIR)$(PREFIX)/bin/dwl $(DESTDIR)$(MANDIR)/man1/dwl.1
+	rm -f $(DESTDIR)$(PREFIX)/bin/dwl
+	rm -f $(DESTDIR)$(PREFIX)/bin/dwl_start
+	rm -f /usr/share/wayland-sessions/dwl.desktop
 
 .PHONY: all clean dist install uninstall
 
