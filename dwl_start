@@ -3,6 +3,10 @@
 # wayland specific stuff
 systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
 
+dunst &
+
+nextcloud &
+
 waybar &
 
 exec dwl
