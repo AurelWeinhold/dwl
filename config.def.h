@@ -1,7 +1,7 @@
 /* appearance */
 static const int sloppyfocus        = 1;  /* focus follows mouse */
-static const unsigned int borderpx  = 1;  /* border pixel of windows */
 static const int lockfullscreen     = 1;  /* 1 will force focus on the fullscreen window */
+static const unsigned int borderpx  = 1;  /* border pixel of windows */
 static const unsigned int gappih    = 10; /* horiz inner gap between windows */
 static const unsigned int gappiv    = 10; /* vert inner gap between windows */
 static const unsigned int gappoh    = 10; /* horiz outer gap between windows and screen edge */
