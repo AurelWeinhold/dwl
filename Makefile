@@ -4,7 +4,7 @@
 include config.mk
 
 # flags for compiling
-DWLCPPFLAGS = -I. -DWLR_USE_UNSTABLE -DVERSION=\"$(VERSION)\"
+DWLCPPFLAGS = -I. -DWLR_USE_UNSTABLE -D_POSIX_C_SOURCE=200809L -DVERSION=\"$(VERSION)\"
 
 # Wayland utils
 WAYLAND_PROTOCOLS = `pkg-config --variable=pkgdatadir wayland-protocols`
@@ -45,10 +45,9 @@ clean:
 # distribution archive
 dist: clean
 	mkdir -p dwl-$(VERSION)
-	cp -R LICENSE* Makefile README.md generate-version.sh client.h\
-		config.def.h config.mk protocols dwl.1 dwl.c util.c util.h\
+	cp -R LICENSE* Makefile README.md client.h config.def.h\
+		config.mk protocols dwl.1 dwl.c util.c util.h\
 		dwl-$(VERSION)
-	echo "echo $(VERSION)" > dwl-$(VERSION)/generate-version.sh
 	tar -caf dwl-$(VERSION).tar.gz dwl-$(VERSION)
 	rm -rf dwl-$(VERSION)
 
