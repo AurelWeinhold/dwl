@@ -117,7 +117,7 @@ static const char *const autostart[] = {
 
 static const char *termcmd[] = { "alacritty", NULL };
 static const char *menucmd[] = { "bemenu-run", NULL };
-static const char *roficmd[]  = { "rofi", "-show", "drun", "-config", XDG_CONFIG_PATH("rofi/starter.rasi"), NULL };
+static const char *roficmd[]  = { "wofi", "--show", "drun", "--conf="XDG_CONFIG_PATH("rofi/starter.rasi"), NULL };
 
 // Volume control
 static const char *volupcmd[]         = { "pamixer", "--increase","5", NULL };
