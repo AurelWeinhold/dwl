@@ -40,7 +40,7 @@ Features under consideration (possibly as patches) are:
 - Protocols made trivial by wlroots
 - Implement the text-input and input-method protocols to support IME once ibus
   implements input-method v2 (see https://github.com/ibus/ibus/pull/2256 and
-  https://github.com/djpohly/dwl/pull/12)
+  https://github.com/djpohly/dwl/pull/235)
 
 Feature *non-goals* for the main codebase include:
 
@@ -78,6 +78,9 @@ dwl can be run on any of the backends supported by wlroots. This means you can
 run it as a separate window inside either an X11 or Wayland session, as well as
 directly from a VT console. Depending on your distro's setup, you may need to
 add your user to the `video` and `input` groups before you can run dwl on a VT.
+If you are using `elogind` or `systemd-logind` you need to install polkit;
+otherwise you need to add yourself in the `seat` group and enable/start the
+seatd daemon.
 
 When dwl is run with no arguments, it will launch the server and begin handling
 any shortcuts configured in `config.h`. There is no status bar or other
@@ -150,3 +153,18 @@ inspiration, and to the various contributors to the project, including:
 - Guido Cella for the layer-shell protocol implementation, patch maintenance,
   and for helping to keep the project running
 - Stivvo for output management and fullscreen support, and patch maintenance
+
+
+[Discord server]: https://discord.gg/jJxZnrGPWN
+[#dwl]: https://web.libera.chat/?channels=#dwl
+[Wayland]: https://wayland.freedesktop.org/
+[wlroots]: https://gitlab.freedesktop.org/wlroots/wlroots/
+[wlroots-next branch]: https://github.com/djpohly/dwl/tree/wlroots-next
+[patches page on our wiki]: https://github.com/djpohly/dwl/wiki/Patches
+[s6]: https://skarnet.org/software/s6/
+[anopa]: https://jjacky.com/anopa/
+[runit]: http://smarden.org/runit/faq.html#userservices
+[`systemd --user`]: https://wiki.archlinux.org/title/Systemd/User
+[wiki]: https://github.com/djpohly/dwl/wiki#compatible-status-bars
+[list of useful resources on our wiki]:
+    https://github.com/djpohly/dwl/wiki#migrating-from-x
