@@ -12,4 +12,4 @@ nextcloud &
 
 waybar &
 
-exec dwl
+exec dwl > ~/.cache/dwl/tags
