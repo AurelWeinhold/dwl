@@ -3,13 +3,4 @@
 # wayland specific stuff
 systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
 
-# set background color
-swaybg -c "#d79921"
-
-dunst &
-
-nextcloud &
-
-waybar &
-
 exec dwl > ~/.cache/dwl/tags
