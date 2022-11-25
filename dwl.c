@@ -2393,12 +2393,12 @@ tile(Monitor *m)
 		if (i < m->nmaster) {
 			r = MIN(n, m->nmaster) - i;
 			h = (m->w.height - my - m->gappoh*oe - m->gappih*ie * (r - 1)) / r;
-			resize(c, m->w.x + m->gappov*oe, m->w.y + my, mw - m->gappiv*ie, h, 0);
+			resize(c, (struct wlr_box){.x = m->w.x + m->gappov*oe, .y = m->w.y + my, .width = mw - m->gappiv*ie, .height =  h}, 0);
 			my += c->geom.height + m->gappih*ie;
 		} else {
 			r = n - i;
 			h = (m->w.height - ty - m->gappoh*oe - m->gappih*ie * (r - 1)) / r;
-			resize(c, m->w.x + mw + m->gappov*oe, m->w.y + ty, m->w.width - mw - 2*m->gappov*oe, h, 0);
+			resize(c, (struct wlr_box){ .x = m->w.x + mw + m->gappov*oe, .y = m->w.y + ty, .width = m->w.width - mw - 2*m->gappov*oe, .height = h}, 0);
 			ty += c->geom.height + m->gappih*ie;
 		}
 		i++;
