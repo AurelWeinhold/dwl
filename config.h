@@ -93,6 +93,14 @@ LIBINPUT_CONFIG_ACCEL_PROFILE_ADAPTIVE
 static const enum libinput_config_accel_profile accel_profile = LIBINPUT_CONFIG_ACCEL_PROFILE_ADAPTIVE;
 static const double accel_speed = 0.0;
 
+/* Autostart */
+static const char *const autostart[] = {
+	"sh", "-c", "swaybg -c '#d79921'", NULL,
+	"dunst", NULL,
+	"nextcloud", NULL,
+	"sh", "-c", "waybar > $HOME/.cache/waybar 2> $HOME/.cache/waybar_err", NULL,
+	NULL /* terminate */
+};
 
 #define MODKEY WLR_MODIFIER_LOGO
 #define TAGKEYS(KEY,SKEY,TAG) \
