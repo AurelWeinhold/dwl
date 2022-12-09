@@ -35,9 +35,12 @@ static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}
  * when width or height == 0 the default size of the client is used
  */
 static const Rule rules[] = {
-	/* app_id     title       tags mask     isfloating   monitor scratchkey float x,y,width,height */
-	{ "Rofi",     "rofi",     0,            1,           -1,      0 ,       0,0,0,0 },
-	{ NULL,     "scratchpad", 0,            1,           -1,     's',       200,100,0,0   },
+	/* app_id      title         tags mask     isfloating   monitor scratchkey float rule */
+	{ "Signal",    NULL,         0,            0,            1,     'm',       RIGHTBOUND_FLOAT, },
+	{ "Telegram",  NULL,         0,            0,            1,     'n',       RIGHTBOUND_FLOAT, },
+	{ "KeePassXC", NULL,         0,            0,            1,     'c',       LEFTBOUND_FLOAT   },
+	{ "Rofi",      "rofi",       0,            1,           -1,      0 ,       NO_FLOAT_RULE     },
+	{ NULL,        "scratchpad", 0,            1,           -1,     's',       LEFTBOUND_FLOAT   },
 };
 
 /* layout(s) */
@@ -150,7 +153,10 @@ static const char *backlightupcmd[]   = { "brightnessctl", "set", "10%+", NULL }
 static const char *backlightdowncmd[] = { "brightnessctl", "set", "10%-", NULL };
 
 /* named scratchpads - First arg only serves to match against key in rules*/
-static const char *scratchpadcmd[] = { "s", "alacritty", "-t", "scratchpad", NULL };
+static const char *scratchsignalcmd[]   = {"m", "signal-desktop", "--no-sandbox", NULL};
+static const char *scratchtelegramcmd[] = {"n", "telegram-desktop", NULL};
+static const char *scratchkeepasscmd[]  = {"c", "keepassxc", NULL};
+static const char *scratchpadcmd[]      = {"s", "alacritty", "-t", "scratchpad", NULL };
 
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: c -> C, 2 -> at, etc. */
@@ -161,6 +167,9 @@ static const Key keys[] = {
 	{ MODKEY,                    XKB_KEY_Return,     spawn,          {.v = termcmd} },
 
 	/* scratchpads */
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_M,      togglescratch,  {.v = scratchsignalcmd } },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_N,      togglescratch,  {.v = scratchtelegramcmd } },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_C,      togglescratch,  {.v = scratchkeepasscmd } },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_X,      togglescratch,  {.v = scratchpadcmd } },
 
 	/* wm */
