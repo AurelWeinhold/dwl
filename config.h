@@ -16,12 +16,13 @@ static const float fullscreen_bg[]  = {0.1, 0.1, 0.1, 1.0};
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
 
 static const Rule rules[] = {
-	/* app_id     title       tags mask     isfloating   monitor */
+	/* app_id     title       tags mask     isfloating   monitor scratchkey */
 	/* examples:
 	{ "Gimp",     NULL,       0,            1,           -1 },
 	{ "firefox",  NULL,       1 << 8,       0,           -1 },
 	*/
-	{ "Rofi",     "rofi",     0,            1,            -1 },
+	{ "Rofi",     "rofi",     0,            1,            -1,     0  },
+	{ NULL,     "scratchpad", 0,            1,           -1,     's' },
 };
 
 /* layout(s) */
@@ -133,11 +134,18 @@ static const char *playprevcmd[]  = { "playerctl", "previous", NULL };
 static const char *backlightupcmd[]   = { "brightnessctl", "set", "10%+", NULL };
 static const char *backlightdowncmd[] = { "brightnessctl", "set", "10%-", NULL };
 
+/* named scratchpads - First arg only serves to match against key in rules*/
+static const char *scratchpadcmd[] = { "s", "alacritty", "-t", "scratchpad", NULL };
+
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: c -> C, 2 -> at, etc. */
 	/* modifier                  key                 function        argument */
 	{ MODKEY,                    XKB_KEY_d,          spawn,          {.v = roficmd} },
 	{ MODKEY,                    XKB_KEY_Return,     spawn,          {.v = termcmd} },
+
+	/* scratchpads */
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_X,      togglescratch,  {.v = scratchpadcmd } },
+
 	{ MODKEY,                    XKB_KEY_j,          focusstack,     {.i = +1} },
 	{ MODKEY,                    XKB_KEY_k,          focusstack,     {.i = -1} },
 	{ MODKEY,                    XKB_KEY_m,          incnmaster,     {.i = +1} },
