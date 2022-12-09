@@ -97,7 +97,7 @@ static const double accel_speed = 0.0;
 static const char *const autostart[] = {
 	"sh", "-c", "swaybg -c '#d79921'", NULL,
 	"dunst", NULL,
-	"nextcloud", NULL,
+	"nextcloud", "--background", NULL,
 	"sh", "-c", "waybar > $HOME/.cache/waybar 2> $HOME/.cache/waybar_err", NULL,
 	NULL /* terminate */
 };
@@ -117,7 +117,7 @@ static const char *const autostart[] = {
 
 static const char *termcmd[] = { "alacritty", NULL };
 static const char *menucmd[] = { "bemenu-run", NULL };
-static const char *roficmd[]  = { "wofi", "--show", "drun", "--conf="XDG_CONFIG_PATH("rofi/starter.rasi"), NULL };
+static const char *roficmd[]  = { "wofi", "--show", "drun", NULL };
 
 // Volume control
 static const char *volupcmd[]         = { "pamixer", "--increase","5", NULL };
