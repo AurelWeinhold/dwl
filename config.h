@@ -16,9 +16,9 @@ static const float fullscreen_bg[]  = {0.1, 0.1, 0.1, 1.0};
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
 
 static const Rule rules[] = {
-	/* app_id     title       tags mask     isfloating   monitor scratchkey */
-	{ "Rofi",     "rofi",     0,            1,            -1,     0  },
-	{ NULL,     "scratchpad", 0,            1,           -1,     's' },
+	/* app_id     title       tags mask     isfloating   monitor scratchkey float x,y,width,height */
+	{ "Rofi",     "rofi",     0,            1,           -1,      0 ,       0,0,0,0 },
+	{ NULL,     "scratchpad", 0,            1,           -1,     's',       200,100,0,0   },
 };
 
 /* layout(s) */

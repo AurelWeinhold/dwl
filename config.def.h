@@ -16,13 +16,19 @@ static const float fullscreen_bg[]  = {0.1, 0.1, 0.1, 1.0};
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
+/*
+ * x, y, width, heigh are floating only
+ * When x or y == 0 the client is placed at the center of the screen,
+ * when width or height == 0 the default size of the client is used
+ */
 static const Rule rules[] = {
-	/* app_id     title       tags mask     isfloating   monitor scratchkey */
+	/* app_id     title       tags mask     isfloating   monitor scratchkey x    y    width height */
 	/* examples:
-	{ "Gimp",     NULL,       0,            1,           -1 },
+	{ "Gimp",     NULL,       0,            1,           -1, 	  0,        0,   0,   500,  400 },
+	{ "firefox",  NULL,       1 << 8,       0,           -1, 	  0,        200, 100, 0,    0 },
 	*/
-	{ "firefox",  NULL,       1 << 8,       0,           -1,      0  },
-	{ NULL,     "scratchpad", 0,            1,           -1,     's' },
+	{ "firefox",  NULL,       1 << 8,       0,           -1, 	  0,        200, 100, 0,    0 },
+	{ NULL,     "scratchpad", 0,            1,           -1,     's',       200, 100, 0,    0 },
 };
 
 /* layout(s) */
