@@ -15,6 +15,25 @@ static const float fullscreen_bg[]  = {0.1, 0.1, 0.1, 1.0};
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
 
+// base definitions
+#define DESKTOP_DIM_X 1920
+#define DESKTOP_DIM_Y 1080
+#define BAR_HEIGHT 33
+#define RIGHTBOUND_X_SIZE 1008
+
+// sizes
+#define WINDOW_HEIGHT DESKTOP_DIM_Y - (BAR_HEIGHT + 3 * gappoh)
+#define RIGHTBOUND_X_OFFSET DESKTOP_DIM_X - (RIGHTBOUND_X_SIZE + 2 * gappov)
+
+// Floating window "layouts": x,y,w,h
+#define LEFTBOUND_FLOAT gappov, gappoh, DESKTOP_DIM_X/2, WINDOW_HEIGHT
+#define RIGHTBOUND_FLOAT RIGHTBOUND_X_OFFSET, gappoh, RIGHTBOUND_X_SIZE, WINDOW_HEIGHT
+#define NO_FLOAT_RULE 0,0,0,0
+/*
+ * x, y, width, heigh are floating only
+ * When x or y == 0 the client is placed at the center of the screen,
+ * when width or height == 0 the default size of the client is used
+ */
 static const Rule rules[] = {
 	/* app_id     title       tags mask     isfloating   monitor scratchkey float x,y,width,height */
 	{ "Rofi",     "rofi",     0,            1,           -1,      0 ,       0,0,0,0 },
