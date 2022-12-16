@@ -34,13 +34,15 @@ static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}
  * When x or y == 0 the client is placed at the center of the screen,
  * when width or height == 0 the default size of the client is used
  */
+#define telegram "org.telegram.desktop"
+#define keepassxc "org.keepassxc.KeePassXC"
 static const Rule rules[] = {
-	/* app_id      title         tags mask     isfloating   monitor scratchkey float rule */
-	{ "Signal",    NULL,         0,            0,            1,     'm',       RIGHTBOUND_FLOAT, },
-	{ "Telegram",  NULL,         0,            0,            1,     'n',       RIGHTBOUND_FLOAT, },
-	{ "KeePassXC", NULL,         0,            0,            1,     'c',       LEFTBOUND_FLOAT   },
-	{ "Rofi",      "rofi",       0,            1,           -1,      0 ,       NO_FLOAT_RULE     },
-	{ NULL,        "scratchpad", 0,            1,           -1,     's',       LEFTBOUND_FLOAT   },
+	/* app_id    title         tags mask     isfloating   monitor scratchkey float rule */
+	{ "Signal",  NULL,         0,            1,           -1,     'm',       RIGHTBOUND_FLOAT, },
+	{ telegram,  NULL,         0,            1,           -1,     'n',       RIGHTBOUND_FLOAT, },
+	{ keepassxc, NULL,         0,            1,           -1,     'c',       LEFTBOUND_FLOAT   },
+	{ "Rofi",    "rofi",       0,            1,           -1,      0 ,       NO_FLOAT_RULE     },
+	{ NULL,      "scratchpad", 0,            1,           -1,     's',       LEFTBOUND_FLOAT   },
 };
 
 /* layout(s) */
