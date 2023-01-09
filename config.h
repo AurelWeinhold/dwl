@@ -116,10 +116,7 @@ static const double accel_speed = 0.0;
 
 /* Autostart */
 static const char *const autostart[] = {
-	"sh", "-c", "swaybg -c '#d79921'", NULL,
-	"dunst", NULL,
-	"nextcloud", "--background", NULL,
-	"sh", "-c", "waybar > $HOME/.cache/waybar 2> $HOME/.cache/waybar_err", NULL,
+	"/bin/sh", "/home/aurel/.local/src/dwl/dwl_after", NULL,
 	NULL /* terminate */
 };
 

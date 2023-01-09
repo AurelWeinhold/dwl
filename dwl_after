@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+swaybg -c '#d79921' &
+dunst &
+nextcloud --background &
+waybar > $"$HOME/.cache/waybar" 2> $"$HOME/.cache/waybar_err" &
