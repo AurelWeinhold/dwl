@@ -1,5 +1,8 @@
 #!/usr/bin/env sh
 
+export XDG_RUNTIME_DIR=/tmp/xdg-runtime-$(id -u)
+mkdir -p $XDG_RUNTIME_DIR
+
 # wayland specific stuff
 
 exec dwl > ~/.cache/dwl/tags
