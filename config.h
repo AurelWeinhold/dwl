@@ -1,4 +1,13 @@
 /* appearance */
+
+#define ROOT { 0.8431, 0.6000, 0.1294, 1.0 }
+#define BLACK { 0.1137, 0.1255, 0.1294, 1.0 }
+#define DARK_RED { 0.8000, 0.1412, 0.1137, 1.0 }
+#define DARK_GREEN { 0.4078, 0.6157, 0.4157, 1.0 }
+
+#define BG BLACK
+
+
 static const int sloppyfocus        = 0;  /* focus follows mouse */
 static const int lockfullscreen     = 1;  /* 1 will force focus on the fullscreen window */
 static const unsigned int borderpx  = 2;  /* border pixel of windows */
@@ -6,9 +15,9 @@ static const unsigned int gappih    = 4;  /* horiz inner gap between windows */
 static const unsigned int gappiv    = 4;  /* vert inner gap between windows */
 static const unsigned int gappoh    = 4;  /* horiz outer gap between windows and screen edge */
 static const unsigned int gappov    = 4;  /* vert outer gap between windows and screen edge */
-static const float rootcolor[]      = {0.8431, 0.6000, 0.1294, 1.0};
-static const float bordercolor[]    = {0.1137, 0.1255, 0.1294, 1.0};
-static const float focuscolor[]     = {0.8000, 0.1412, 0.1137, 1.0};
+static const float rootcolor[]      = ROOT;
+static const float bordercolor[]    = BG;
+static const float focuscolor[]     = DARK_GREEN;
 /* To conform the xdg-protocol, set the alpha to zero to restore the old behavior */
 static const float fullscreen_bg[]  = {0.1, 0.1, 0.1, 1.0};
 
