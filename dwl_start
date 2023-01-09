@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+cd $HOME
+
 export XDG_RUNTIME_DIR=/tmp/xdg-runtime-$(id -u)
 mkdir -p $XDG_RUNTIME_DIR
 
@@ -11,4 +13,4 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export MOZ_ENABLE_WAYLAND=1
 export XDG_CURRENT_DESKTOP=dwl
 
-exec dwl > ~/.cache/dwl/tags
+exec dwl > ~/.cache/dwl/tags 2> ~/.cache/dwl/errors
