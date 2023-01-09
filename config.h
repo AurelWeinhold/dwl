@@ -27,16 +27,16 @@ static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}
 // base definitions
 #define DESKTOP_DIM_X 1920
 #define DESKTOP_DIM_Y 1080
-#define BAR_HEIGHT 33
-#define RIGHTBOUND_X_SIZE 1008
+#define BAR_HEIGHT 32
+#define SIZE_X DESKTOP_DIM_X / 2
 
 // sizes
 #define WINDOW_HEIGHT DESKTOP_DIM_Y - (BAR_HEIGHT + 3 * gappoh)
-#define RIGHTBOUND_X_OFFSET DESKTOP_DIM_X - (RIGHTBOUND_X_SIZE + 2 * gappov)
+#define RIGHTBOUND_X_OFFSET DESKTOP_DIM_X - SIZE_X - gappoh
 
 // Floating window "layouts": x,y,w,h
-#define LEFTBOUND_FLOAT gappov, gappoh, DESKTOP_DIM_X/2, WINDOW_HEIGHT
-#define RIGHTBOUND_FLOAT RIGHTBOUND_X_OFFSET, gappoh, RIGHTBOUND_X_SIZE, WINDOW_HEIGHT
+#define LEFTBOUND_FLOAT gappov, gappoh, SIZE_X, WINDOW_HEIGHT
+#define RIGHTBOUND_FLOAT RIGHTBOUND_X_OFFSET, gappoh, SIZE_X, WINDOW_HEIGHT
 #define NO_FLOAT_RULE 0,0,0,0
 /*
  * x, y, width, heigh are floating only
