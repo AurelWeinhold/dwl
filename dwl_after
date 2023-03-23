@@ -1,8 +1,10 @@
 #!/usr/bin/env sh
 
 systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
+
+waybar > $"$HOME/.cache/waybar" 2> $"$HOME/.cache/waybar_err" &
 swaybg -c '#d79921' &
+
 dunst &
 nextcloud --background &
-waybar > $"$HOME/.cache/waybar" 2> $"$HOME/.cache/waybar_err" &
 /usr/lib/kdeconnectd &
