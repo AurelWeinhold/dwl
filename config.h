@@ -148,9 +148,13 @@ static const char *const autostart[] = {
 /* commands */
 #define XDG_CONFIG_PATH(relpath) "/home/aurel/.config/"relpath
 
-static const char *termcmd[] = { "alacritty", NULL };
-static const char *menucmd[] = { "bemenu-run", NULL };
-static const char *roficmd[]  = { "wofi", "--show", "drun", NULL };
+static const char *termcmd[]     = { "alacritty", NULL };
+static const char *menucmd[]     = { "bemenu-run", NULL };
+static const char *roficmd[]     = { "rofi", "-show", "drun",
+	"-config", XDG_CONFIG_PATH("rofi/starter.rasi"), NULL };
+static const char *runshellcmd[] = {"rofi", "-show", "run",
+	"-config", XDG_CONFIG_PATH("rofi/finder.rasi"),
+	"-run-shell-command", "'{terminal} -e \" {cmd}; read -n 1 - s\" '", NULL};
 
 // Volume control
 static const char *volupcmd[]         = { "pamixer", "--increase","5", NULL };
@@ -179,6 +183,7 @@ static const Key keys[] = {
 	/* spawn */
 	{ MODKEY,                    XKB_KEY_d,          spawn,          {.v = roficmd} },
 	{ MODKEY,                    XKB_KEY_Return,     spawn,          {.v = termcmd} },
+	{ MODKEY,                    XKB_KEY_e,          spawn,          {.v = runshellcmd } },
 
 	/* scratchpads */
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_M,      togglescratch,  {.v = scratchsignalcmd } },
